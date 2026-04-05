@@ -4,14 +4,13 @@
 //
 //	Created by: thevwu on 2026
 //
-
 import ComposableArchitecture
 
 @Reducer
 struct AppFeature {
 	@ObservableState
 	struct State: Equatable {
-		var home = HomeFeature.State.mock
+		var home = HomeFeature.State.demo
 	}
 
 	enum Action {

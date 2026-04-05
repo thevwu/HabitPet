@@ -19,10 +19,10 @@ struct HomeFeature {
 		var overloadLevel: BurnoutLevel
 		var message: String
 
-		static let mock = State(
-			pet: Pet.mock,
-			habits: IdentifiedArray(uniqueElements: Habit.sampleHabits),
-			tasks: IdentifiedArray(uniqueElements: TaskItem.sampleTasks),
+		static let demo = State(
+			pet: DemoFixtures.pet,
+			habits: DemoFixtures.habits,
+			tasks: DemoFixtures.tasks,
 			careScore: 72,
 			overloadLevel: .light,
 			message: "Your pet is waiting to see how today goes."
@@ -49,7 +49,6 @@ struct HomeFeature {
 
 				habit.isCompletedToday = true
 				state.habits[id: id] = habit
-
 				recalculate(state: &state)
 				return .none
 
@@ -60,7 +59,6 @@ struct HomeFeature {
 
 				task.isCompleted = true
 				state.tasks[id: id] = task
-
 				recalculate(state: &state)
 				return .none
 			}

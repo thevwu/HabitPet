@@ -14,15 +14,6 @@ struct Pet: Equatable, Identifiable {
 	var mood: PetMood
 	var energy: Int
 	var affection: Int
-
-	static let mock = Pet(
-		id: UUID(),
-		name: "Mochi",
-		type: .dog,
-		mood: .neutral,
-		energy: 65,
-		affection: 60
-	)
 }
 
 enum PetType: String, Equatable, CaseIterable {

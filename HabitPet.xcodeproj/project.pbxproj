@@ -10,30 +10,52 @@
 		6F793C812F8279D900886C4A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6F793C802F8279D900886C4A /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6F81D6592F81D10E00A2F78B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F81D63E2F81D10D00A2F78B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F81D6452F81D10D00A2F78B;
-			remoteInfo = HabitPet;
-		};
-		6F81D6632F81D10E00A2F78B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F81D63E2F81D10D00A2F78B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F81D6452F81D10D00A2F78B;
-			remoteInfo = HabitPet;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		6F81D6462F81D10D00A2F78B /* HabitPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81D6582F81D10E00A2F78B /* HabitPetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitPetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81D6622F81D10E00A2F78B /* HabitPetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitPetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6F793C902F827F7000886C4A /* Exceptions for "HabitPetTests" folder in "HabitPet" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Domain/BurnoutEngineTests.swift,
+				Domain/CareScoreEngineTests.swift,
+				Domain/PetEngineTests.swift,
+				Features/HomeFeatureTests.swift,
+				Fixtures/TestFixtures.swift,
+			);
+			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
+		};
+		6F793CA82F8282BA00886C4A /* Exceptions for "HabitPetTests" folder in "HabitPetTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Domain/BurnoutEngineTests.swift,
+				Domain/CareScoreEngineTests.swift,
+				Domain/PetEngineTests.swift,
+				Features/HomeFeatureTests.swift,
+				Fixtures/TestFixtures.swift,
+			);
+			target = 6F81D6572F81D10E00A2F78B /* HabitPetTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		6F793C8E2F827F0A00886C4A /* HabitPetTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6F793C902F827F7000886C4A /* Exceptions for "HabitPetTests" folder in "HabitPet" target */,
+				6F793CA82F8282BA00886C4A /* Exceptions for "HabitPetTests" folder in "HabitPetTests" target */,
+			);
+			path = HabitPetTests;
+			sourceTree = "<group>";
+		};
+		6F793C9E2F82824D00886C4A /* HabitPetUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HabitPetUITests;
+			sourceTree = "<group>";
+		};
 		6F81D6482F81D10D00A2F78B /* HabitPet */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HabitPet;
@@ -80,6 +102,8 @@
 				6F81D6482F81D10D00A2F78B /* HabitPet */,
 				6F793C7F2F8279D900886C4A /* Frameworks */,
 				6F81D6472F81D10D00A2F78B /* Products */,
+				6F793C8E2F827F0A00886C4A /* HabitPetTests */,
+				6F793C9E2F82824D00886C4A /* HabitPetUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +133,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				6F793C8E2F827F0A00886C4A /* HabitPetTests */,
+				6F793C9E2F82824D00886C4A /* HabitPetUITests */,
 				6F81D6482F81D10D00A2F78B /* HabitPet */,
 			);
 			name = HabitPet;
@@ -130,7 +156,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6F81D65A2F81D10E00A2F78B /* PBXTargetDependency */,
 			);
 			name = HabitPetTests;
 			packageProductDependencies = (
@@ -150,7 +175,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6F81D6642F81D10E00A2F78B /* PBXTargetDependency */,
 			);
 			name = HabitPetUITests;
 			packageProductDependencies = (
@@ -253,19 +277,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6F81D65A2F81D10E00A2F78B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
-			targetProxy = 6F81D6592F81D10E00A2F78B /* PBXContainerItemProxy */;
-		};
-		6F81D6642F81D10E00A2F78B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
-			targetProxy = 6F81D6632F81D10E00A2F78B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6F81D66A2F81D10E00A2F78B /* Debug */ = {
@@ -472,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,6 +544,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
