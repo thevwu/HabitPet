@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6F793C812F8279D900886C4A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6F793C802F8279D900886C4A /* ComposableArchitecture */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6F81D6592F81D10E00A2F78B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,41 +33,9 @@
 		6F81D6622F81D10E00A2F78B /* HabitPetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitPetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6F81D6B52F81D7C800A2F78B /* Exceptions for "HabitPet" folder in "HabitPet" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Tests/HabitPetTests/HabitPetTests.swift,
-				Tests/HabitPetUITests/HabitPetUITests.swift,
-				Tests/HabitPetUITests/HabitPetUITestsLaunchTests.swift,
-			);
-			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
-		};
-		6F81D6B62F81D7C800A2F78B /* Exceptions for "HabitPet" folder in "HabitPetTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Tests/HabitPetTests/HabitPetTests.swift,
-			);
-			target = 6F81D6572F81D10E00A2F78B /* HabitPetTests */;
-		};
-		6F81D6B72F81D7C800A2F78B /* Exceptions for "HabitPet" folder in "HabitPetUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Tests/HabitPetUITests/HabitPetUITests.swift,
-				Tests/HabitPetUITests/HabitPetUITestsLaunchTests.swift,
-			);
-			target = 6F81D6612F81D10E00A2F78B /* HabitPetUITests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6F81D6482F81D10D00A2F78B /* HabitPet */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6F81D6B52F81D7C800A2F78B /* Exceptions for "HabitPet" folder in "HabitPet" target */,
-				6F81D6B62F81D7C800A2F78B /* Exceptions for "HabitPet" folder in "HabitPetTests" target */,
-				6F81D6B72F81D7C800A2F78B /* Exceptions for "HabitPet" folder in "HabitPetUITests" target */,
-			);
 			path = HabitPet;
 			sourceTree = "<group>";
 		};
@@ -74,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F793C812F8279D900886C4A /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +67,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F793C7F2F8279D900886C4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6F81D63D2F81D10D00A2F78B = {
 			isa = PBXGroup;
 			children = (
 				6F81D6482F81D10D00A2F78B /* HabitPet */,
+				6F793C7F2F8279D900886C4A /* Frameworks */,
 				6F81D6472F81D10D00A2F78B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -132,6 +113,7 @@
 			);
 			name = HabitPet;
 			packageProductDependencies = (
+				6F793C802F8279D900886C4A /* ComposableArchitecture */,
 			);
 			productName = HabitPet;
 			productReference = 6F81D6462F81D10D00A2F78B /* HabitPet.app */;
@@ -210,7 +192,7 @@
 			mainGroup = 6F81D63D2F81D10D00A2F78B;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				6F81D6752F81D19D00A2F78B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				6F2B95B22F82067D00BBDE0E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6F81D6472F81D10D00A2F78B /* Products */;
@@ -420,11 +402,14 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -436,7 +421,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 6.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -456,11 +441,14 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -472,7 +460,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 6.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -599,7 +587,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6F81D6752F81D19D00A2F78B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		6F2B95B22F82067D00BBDE0E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
@@ -608,6 +596,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F793C802F8279D900886C4A /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F2B95B22F82067D00BBDE0E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F81D63E2F81D10D00A2F78B /* Project object */;
 }

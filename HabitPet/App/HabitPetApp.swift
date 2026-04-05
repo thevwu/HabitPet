@@ -1,7 +1,23 @@
+////
+//	HabitPet
+//	AppFeature.swift
 //
-//  HabitPetApp.swift
-//  HabitPet
+//	Created by: thevwu on 2026
 //
-//  Created by m1 on 04/04/2026.
-//
-//  TODO
+
+import SwiftUI
+import ComposableArchitecture
+
+@main
+struct HabitPetApp: App {
+	var body: some Scene {
+		WindowGroup {
+			AppView(
+				store: Store(
+					initialState: AppFeature.State(),
+					reducer: { AppFeature() }
+				)
+			)
+		}
+	}
+}
