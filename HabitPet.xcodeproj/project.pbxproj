@@ -6,22 +6,9 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		6F81D6592F81D10E00A2F78B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F81D63E2F81D10D00A2F78B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F81D6452F81D10D00A2F78B;
-			remoteInfo = HabitPet;
-		};
-		6F81D6632F81D10E00A2F78B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F81D63E2F81D10D00A2F78B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F81D6452F81D10D00A2F78B;
-			remoteInfo = HabitPet;
-		};
-/* End PBXContainerItemProxy section */
+/* Begin PBXBuildFile section */
+		6F793C812F8279D900886C4A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6F793C802F8279D900886C4A /* ComposableArchitecture */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6F81D6462F81D10D00A2F78B /* HabitPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,20 +16,49 @@
 		6F81D6622F81D10E00A2F78B /* HabitPetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitPetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		6F81D6482F81D10D00A2F78B /* HabitPet */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HabitPet;
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6F793C902F827F7000886C4A /* Exceptions for "HabitPetTests" folder in "HabitPet" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Domain/BurnoutEngineTests.swift,
+				Domain/CareScoreEngineTests.swift,
+				Domain/PetEngineTests.swift,
+				Features/HomeFeatureTests.swift,
+				Fixtures/TestFixtures.swift,
+			);
+			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
 		};
-		6F81D65B2F81D10E00A2F78B /* HabitPetTests */ = {
+		6F793CA82F8282BA00886C4A /* Exceptions for "HabitPetTests" folder in "HabitPetTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Domain/BurnoutEngineTests.swift,
+				Domain/CareScoreEngineTests.swift,
+				Domain/PetEngineTests.swift,
+				Features/HomeFeatureTests.swift,
+				Fixtures/TestFixtures.swift,
+			);
+			target = 6F81D6572F81D10E00A2F78B /* HabitPetTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6F793C8E2F827F0A00886C4A /* HabitPetTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6F793C902F827F7000886C4A /* Exceptions for "HabitPetTests" folder in "HabitPet" target */,
+				6F793CA82F8282BA00886C4A /* Exceptions for "HabitPetTests" folder in "HabitPetTests" target */,
+			);
 			path = HabitPetTests;
 			sourceTree = "<group>";
 		};
-		6F81D6652F81D10E00A2F78B /* HabitPetUITests */ = {
+		6F793C9E2F82824D00886C4A /* HabitPetUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HabitPetUITests;
+			sourceTree = "<group>";
+		};
+		6F81D6482F81D10D00A2F78B /* HabitPet */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HabitPet;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F793C812F8279D900886C4A /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,13 +89,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F793C7F2F8279D900886C4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6F81D63D2F81D10D00A2F78B = {
 			isa = PBXGroup;
 			children = (
 				6F81D6482F81D10D00A2F78B /* HabitPet */,
-				6F81D65B2F81D10E00A2F78B /* HabitPetTests */,
-				6F81D6652F81D10E00A2F78B /* HabitPetUITests */,
+				6F793C7F2F8279D900886C4A /* Frameworks */,
 				6F81D6472F81D10D00A2F78B /* Products */,
+				6F793C8E2F827F0A00886C4A /* HabitPetTests */,
+				6F793C9E2F82824D00886C4A /* HabitPetUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,10 +133,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				6F793C8E2F827F0A00886C4A /* HabitPetTests */,
+				6F793C9E2F82824D00886C4A /* HabitPetUITests */,
 				6F81D6482F81D10D00A2F78B /* HabitPet */,
 			);
 			name = HabitPet;
 			packageProductDependencies = (
+				6F793C802F8279D900886C4A /* ComposableArchitecture */,
 			);
 			productName = HabitPet;
 			productReference = 6F81D6462F81D10D00A2F78B /* HabitPet.app */;
@@ -128,10 +156,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6F81D65A2F81D10E00A2F78B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				6F81D65B2F81D10E00A2F78B /* HabitPetTests */,
 			);
 			name = HabitPetTests;
 			packageProductDependencies = (
@@ -151,10 +175,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6F81D6642F81D10E00A2F78B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				6F81D6652F81D10E00A2F78B /* HabitPetUITests */,
 			);
 			name = HabitPetUITests;
 			packageProductDependencies = (
@@ -196,7 +216,7 @@
 			mainGroup = 6F81D63D2F81D10D00A2F78B;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				6F81D6752F81D19D00A2F78B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				6F2B95B22F82067D00BBDE0E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6F81D6472F81D10D00A2F78B /* Products */;
@@ -257,19 +277,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6F81D65A2F81D10E00A2F78B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
-			targetProxy = 6F81D6592F81D10E00A2F78B /* PBXContainerItemProxy */;
-		};
-		6F81D6642F81D10E00A2F78B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
-			targetProxy = 6F81D6632F81D10E00A2F78B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6F81D66A2F81D10E00A2F78B /* Debug */ = {
@@ -398,6 +405,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T8Z3WTND9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -405,14 +413,21 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -429,6 +444,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T8Z3WTND9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -436,14 +452,21 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -460,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -481,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,6 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +544,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorwu.HabitPetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -575,7 +600,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6F81D6752F81D19D00A2F78B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		6F2B95B22F82067D00BBDE0E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
@@ -584,6 +609,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F793C802F8279D900886C4A /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F2B95B22F82067D00BBDE0E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F81D63E2F81D10D00A2F78B /* Project object */;
 }
