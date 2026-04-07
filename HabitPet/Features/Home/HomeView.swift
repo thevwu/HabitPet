@@ -10,8 +10,22 @@ import ComposableArchitecture
 
 struct HomeView: View {
 	let store: StoreOf<HomeFeature>
-
+		
 	var body: some View {
+		if let errorMessage = store.errorMessage {
+			Text(errorMessage)
+				.font(.footnote)
+				.foregroundStyle(.red)
+				.frame(maxWidth: .infinity, alignment: .leading)
+		}
+		
+		if store.pet == nil && !store.isLoading {
+			Button("Retry") {
+				store.send(.refresh)
+			}
+			.buttonStyle(.borderedProminent)
+		}
+		
 		VStack(spacing: 16) {
 			petCard
 			todaySection
@@ -26,13 +40,13 @@ struct HomeView: View {
 
 	private var petCard: some View {
 		VStack(spacing: 12) {
-			Text(store.pet.mood.emoji)
+			Text(store.pet?.mood.emoji ?? "🐾")
 				.font(.system(size: 72))
 
-			Text(store.pet.name)
+			Text(store.pet?.name ?? "Loading..")
 				.font(.title2.bold())
 
-			Text(store.pet.mood.displayName)
+			Text(store.pet?.mood.displayName ?? "...")
 				.font(.headline)
 				.foregroundStyle(.secondary)
 
@@ -43,8 +57,8 @@ struct HomeView: View {
 
 			HStack(spacing: 12) {
 				statPill(title: "Care", value: "\(store.careScore)")
-				statPill(title: "Energy", value: "\(store.pet.energy)")
-				statPill(title: "Affection", value: "\(store.pet.affection)")
+				statPill(title: "Energy", value: "\(store.pet?.energy ?? 0)")
+				statPill(title: "Affection", value: "\(store.pet?.affection ?? 0)")
 				statPill(title: "Load", value: store.overloadLevel.displayName)
 			}
 		}

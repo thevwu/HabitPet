@@ -7,23 +7,36 @@
 
 import Foundation
 
-struct Pet: Equatable, Identifiable {
+struct Pet: Equatable, Identifiable, Sendable {
 	let id: UUID
 	var name: String
 	var type: PetType
 	var mood: PetMood
 	var energy: Int
 	var affection: Int
+	var syncMetadata: SyncMetadata
+
+	static func seeds(now: Date) -> Pet {
+		Pet(
+			id: UUID(),
+			name: "Mochi",
+			type: .dog,
+			mood: .neutral,
+			energy: 65,
+			affection: 60,
+			syncMetadata: .fresh(now: now)
+		)
+	}
 }
 
-enum PetType: String, Equatable, CaseIterable {
+enum PetType: String, Equatable, Codable, CaseIterable, Sendable {
 	case dog
 	case cat
 	case bird
 	case plant
 }
 
-enum PetMood: Equatable {
+enum PetMood: String, Equatable, Codable, Sendable {
 	case joyful
 	case energetic
 	case neutral

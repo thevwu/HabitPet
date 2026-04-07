@@ -23,8 +23,13 @@
 				Domain/BurnoutEngineTests.swift,
 				Domain/CareScoreEngineTests.swift,
 				Domain/PetEngineTests.swift,
+				Features/HomeFeatureCompletionFlowTests.swift,
 				Features/HomeFeatureTests.swift,
-				Fixtures/TestFixtures.swift,
+				Integration/CoreDataRoundTripTests.swift,
+				Integration/RepositoryRoundTripTests.swift,
+				TestFixtures/DemoFixtures.swift,
+				TestFixtures/InMemoryTestStore.swift,
+				TestFixtures/TestFixtures.swift,
 			);
 			target = 6F81D6452F81D10D00A2F78B /* HabitPet */;
 		};
@@ -34,8 +39,13 @@
 				Domain/BurnoutEngineTests.swift,
 				Domain/CareScoreEngineTests.swift,
 				Domain/PetEngineTests.swift,
+				Features/HomeFeatureCompletionFlowTests.swift,
 				Features/HomeFeatureTests.swift,
-				Fixtures/TestFixtures.swift,
+				Integration/CoreDataRoundTripTests.swift,
+				Integration/RepositoryRoundTripTests.swift,
+				TestFixtures/DemoFixtures.swift,
+				TestFixtures/InMemoryTestStore.swift,
+				TestFixtures/TestFixtures.swift,
 			);
 			target = 6F81D6572F81D10E00A2F78B /* HabitPetTests */;
 		};

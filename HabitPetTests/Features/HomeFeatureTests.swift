@@ -5,166 +5,51 @@
 //	Created by: thevwu on 2026
 //
 
-import XCTest
+
+import Foundation
+import Testing
 import ComposableArchitecture
 @testable import HabitPet
 
-@MainActor
-final class HomeFeatureTests: XCTestCase {
-	func testOnAppearRecalculatesInitialState() async {
-		let store = TestStore(
-			initialState: TestFixtures.homeState()
-		) {
-			HomeFeature()
-		}
+struct HomeFeatureTests {
+    @Test
+    func loadSeedsAndLoadsHome() async {
+        let now = Date(timeIntervalSince1970: 1_000)
+        let pet = Pet.seeds(now: now)
+        let habits = Habit.seeds(now: now)
+        let tasks = TaskItem.seeds(now: now)
 
-		await store.send(.onAppear) {
-			$0.careScore = 0
-			$0.overloadLevel = .light
-			$0.pet.mood = .sleepy
-			$0.pet.energy = 61
-			$0.pet.affection = 58
-			$0.message = "Mochi is waiting for your first completed task."
-		}
-	}
+		let store = await TestStore(initialState: HomeFeature.State()) {
+            HomeFeature()
+        } withDependencies: {
+            $0.dateProvider.now = { now }
+            $0.petRepository.fetchPet = { pet }
+            $0.petRepository.seedIfNeeded = { _,_ in }
+            $0.habitRepository.fetchHabits = { habits }
+            $0.habitRepository.seedIfNeeded = { _,_ in }
+            $0.taskRepository.fetchTasks = { tasks }
+            $0.taskRepository.seedIfNeeded = { _,_ in }
+            $0.completionEventRepository.fetchEventsForDay = { _ in [] }
+        }
 
-	func testCompletingHabitMarksHabitDoneAndUpdatesState() async {
-		let store = TestStore(
-			initialState: TestFixtures.homeState()
-		) {
-			HomeFeature()
-		}
+        await store.send(.onAppear) {
+            $0.isLoading = true
+            $0.errorMessage = nil
+        }
 
-		await store.send(.habitCompleteTapped(TestFixtures.drinkWaterID)) {
-			$0.habits[id: TestFixtures.drinkWaterID]?.isCompletedToday = true
-			$0.careScore = 23
-			$0.overloadLevel = .light
-			$0.pet.mood = .neutral
-			$0.message = "Mochi noticed your progress. Keep going."
-		}
-	}
-
-	func testCompletingTaskMarksTaskDoneAndUpdatesState() async {
-		let store = TestStore(
-			initialState: TestFixtures.homeState()
-		) {
-			HomeFeature()
-		}
-
-		await store.send(.taskCompleteTapped(TestFixtures.recruiterID)) {
-			$0.tasks[id: TestFixtures.recruiterID]?.isCompleted = true
-			$0.careScore = 15
-			$0.overloadLevel = .light
-			$0.pet.mood = .neutral
-			$0.message = "Mochi noticed your progress. Keep going."
-		}
-	}
-
-	func testCompletingSameHabitTwiceDoesNothingSecondTime() async {
-		let store = TestStore(
-			initialState: TestFixtures.homeState()
-		) {
-			HomeFeature()
-		}
-
-		await store.send(.habitCompleteTapped(TestFixtures.drinkWaterID)) {
-			$0.habits[id: TestFixtures.drinkWaterID]?.isCompletedToday = true
-			$0.careScore = 23
-			$0.overloadLevel = .light
-			$0.pet.mood = .neutral
-			$0.message = "Mochi noticed your progress. Keep going."
-		}
-
-		await store.send(.habitCompleteTapped(TestFixtures.drinkWaterID))
-	}
-
-	func testCompletingSameTaskTwiceDoesNothingSecondTime() async {
-		let store = TestStore(
-			initialState: TestFixtures.homeState()
-		) {
-			HomeFeature()
-		}
-
-		await store.send(.taskCompleteTapped(TestFixtures.recruiterID)) {
-			$0.tasks[id: TestFixtures.recruiterID]?.isCompleted = true
-			$0.careScore = 15
-			$0.overloadLevel = .light
-			$0.pet.mood = .neutral
-			$0.message = "Mochi noticed your progress. Keep going."
-		}
-
-		await store.send(.taskCompleteTapped(TestFixtures.recruiterID))
-	}
-
-	func testCompletingMultipleItemsMakesPetEnergetic() async {
-		let store = TestStore(
-			initialState: TestFixtures.homeState()
-		) {
-			HomeFeature()
-		}
-
-		await store.send(.habitCompleteTapped(TestFixtures.drinkWaterID)) {
-			$0.habits[id: TestFixtures.drinkWaterID]?.isCompletedToday = true
-			$0.careScore = 23
-			$0.overloadLevel = .light
-			$0.pet.mood = .neutral
-			$0.message = "Mochi noticed your progress. Keep going."
-		}
-
-		await store.send(.taskCompleteTapped(TestFixtures.recruiterID)) {
-			$0.tasks[id: TestFixtures.recruiterID]?.isCompleted = true
-			$0.careScore = 38
-			$0.overloadLevel = .light
-			$0.pet.mood = .energetic
-			$0.pet.energy = 73
-			$0.pet.affection = 66
-			$0.message = "Mochi is getting excited. Momentum is building."
-		}
-	}
-
-	func testCompletingAllItemsMakesPetJoyful() async {
-		let store = TestStore(
-			initialState: TestFixtures.homeState()
-		) {
-			HomeFeature()
-		}
-
-		await store.send(.habitCompleteTapped(TestFixtures.drinkWaterID)) {
-			$0.habits[id: TestFixtures.drinkWaterID]?.isCompletedToday = true
-			$0.careScore = 23
-			$0.overloadLevel = .light
-			$0.pet.mood = .neutral
-			$0.message = "Mochi noticed your progress. Keep going."
-		}
-
-		await store.send(.habitCompleteTapped(TestFixtures.runID)) {
-			$0.habits[id: TestFixtures.runID]?.isCompletedToday = true
-			$0.careScore = 47
-			$0.overloadLevel = .light
-			$0.pet.mood = .energetic
-			$0.pet.energy = 73
-			$0.pet.affection = 66
-			$0.message = "Mochi is getting excited. Momentum is building."
-		}
-
-		await store.send(.habitCompleteTapped(TestFixtures.readID)) {
-			$0.habits[id: TestFixtures.readID]?.isCompletedToday = true
-			$0.careScore = 70
-			$0.overloadLevel = .light
-			$0.pet.mood = .energetic
-			$0.pet.energy = 81
-			$0.pet.affection = 72
-			$0.message = "Mochi is getting excited. Momentum is building."
-		}
-
-		await store.send(.taskCompleteTapped(TestFixtures.recruiterID)) {
-			$0.tasks[id: TestFixtures.recruiterID]?.isCompleted = true
-			$0.careScore = 85
-			$0.overloadLevel = .light
-			$0.pet.mood = .joyful
-			$0.pet.energy = 96
-			$0.pet.affection = 84
-			$0.message = "Mochi is thriving today."
-		}
-	}
+        await store.receive(\.loadResponse.success) {
+            $0.isLoading = false
+            $0.pet = PetEngine.updatePet(
+                current: pet,
+                completedHabits: 0,
+                completedTasks: 0,
+                overload: BurnoutEngine.evaluate(habits: habits, tasks: tasks)
+            )
+            $0.habits = IdentifiedArray(uniqueElements: habits)
+            $0.tasks = IdentifiedArray(uniqueElements: tasks)
+            $0.overloadLevel = BurnoutEngine.evaluate(habits: habits, tasks: tasks)
+            $0.careScore = 0
+            $0.message = "\(pet.name) is waiting for your first completed task."
+        }
+    }
 }
