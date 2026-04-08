@@ -1,0 +1,25 @@
+name: Bug
+description: Track a user-facing or system-level deliverable
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: Describe the bug and its effects
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      placeholder: What should be true when the bug is fixed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
