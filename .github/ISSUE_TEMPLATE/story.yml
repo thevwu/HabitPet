@@ -1,0 +1,35 @@
+name: Story
+description: Track a user-facing or system-level deliverable
+title: "[Story] "
+labels: ["story"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: Describe the story
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      placeholder: What should be true when this is complete?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
