@@ -1,0 +1,43 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Resolve Swift packages
+        run: xcodebuild -resolvePackageDependencies -project HabitPet.xcodeproj
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -project HabitPet.xcodeproj \
+            -scheme HabitPet \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            clean build
+
+      - name: Test
+        run: |
+          xcodebuild \
+            -project HabitPet.xcodeproj \
+            -scheme HabitPet \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            test
