@@ -14,6 +14,7 @@
 		6F81D6462F81D10D00A2F78B /* HabitPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81D6582F81D10E00A2F78B /* HabitPetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitPetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81D6622F81D10E00A2F78B /* HabitPetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitPetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FCED1D12F8733D500DB24EC /* HabitPet.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = HabitPet.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -109,6 +110,7 @@
 		6F81D63D2F81D10D00A2F78B = {
 			isa = PBXGroup;
 			children = (
+				6FCED1D12F8733D500DB24EC /* HabitPet.xctestplan */,
 				6F81D6482F81D10D00A2F78B /* HabitPet */,
 				6F793C7F2F8279D900886C4A /* Frameworks */,
 				6F81D6472F81D10D00A2F78B /* Products */,

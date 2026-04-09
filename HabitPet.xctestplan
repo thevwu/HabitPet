@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "21D20005-1BBA-4EA7-9AF6-8B1F62F26960",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:HabitPet.xcodeproj",
+      "identifier" : "6F81D6452F81D10D00A2F78B",
+      "name" : "HabitPet"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HabitPet.xcodeproj",
+        "identifier" : "6F81D6572F81D10E00A2F78B",
+        "name" : "HabitPetTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:HabitPet.xcodeproj",
+        "identifier" : "6F81D6612F81D10E00A2F78B",
+        "name" : "HabitPetUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
