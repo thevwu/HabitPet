@@ -15,12 +15,12 @@ jobs:
     name: Build and Test
     runs-on: macos-15
 
+    env:
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode.app
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -29,9 +29,11 @@ jobs:
         run: |
           xcodebuild -resolvePackageDependencies \
             -project HabitPet.xcodeproj \
-            -scheme HabitPet
+            -scheme HabitPet \
+            -skipPackagePluginValidation \
+            -skipMacroValidation
 
-      - name: Build app
+      - name: Build
         run: |
           xcodebuild \
             -project HabitPet.xcodeproj \
@@ -39,9 +41,11 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             -configuration Debug \
             CODE_SIGNING_ALLOWED=NO \
+            -skipPackagePluginValidation \
+            -skipMacroValidation \
             clean build
 
-      - name: Run tests
+      - name: Test
         run: |
           xcodebuild \
             -project HabitPet.xcodeproj \
@@ -49,4 +53,6 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             -configuration Debug \
             CODE_SIGNING_ALLOWED=NO \
+            -skipPackagePluginValidation \
+            -skipMacroValidation \
             test
