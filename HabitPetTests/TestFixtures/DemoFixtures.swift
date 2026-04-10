@@ -29,10 +29,11 @@ enum DemoFixtures {
             overload: overload
         )
 
-        return HomeFeature.State(
-            pet: derivedPet,
-            habits: IdentifiedArray(uniqueElements: habits),
-            tasks: IdentifiedArray(uniqueElements: tasks),
+		return HomeFeature.State(
+			pet: derivedPet,
+			sourcePet: pet,
+			habits: IdentifiedArray(uniqueElements: habits),
+			tasks: IdentifiedArray(uniqueElements: tasks),
             careScore: CareScoreEngine.calculate(
                 completedHabits: habits.filter(\.isCompletedToday).count,
                 totalHabits: habits.count,

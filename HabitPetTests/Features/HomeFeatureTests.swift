@@ -39,6 +39,7 @@ struct HomeFeatureTests {
 
         await store.receive(\.loadResponse.success) {
             $0.isLoading = false
+			$0.sourcePet = pet
             $0.pet = PetEngine.updatePet(
                 current: pet,
                 completedHabits: 0,

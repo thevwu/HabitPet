@@ -83,11 +83,14 @@ struct HomeView: View {
 				.font(.title3.bold())
 
 			ForEach(store.habits) { habit in
+				let isCompleting = store.completingHabitIDs.contains(habit.id)
+
 				itemRow(
 					title: habit.title,
 					subtitle: "Effort \(habit.effort)",
 					isComplete: habit.isCompletedToday,
-					buttonTitle: habit.isCompletedToday ? "Done" : "Complete"
+					isWorking: isCompleting,
+					buttonTitle: habit.isCompletedToday ? "Done" : (isCompleting ? "Saving..." : "Complete")
 				) {
 					store.send(.habitCompleteTapped(habit.id))
 				}
@@ -101,11 +104,14 @@ struct HomeView: View {
 				.font(.title3.bold())
 
 			ForEach(store.tasks) { task in
+				let isCompleting = store.completingTaskIDs.contains(task.id)
+
 				itemRow(
 					title: task.title,
 					subtitle: "Effort \(task.effort)",
 					isComplete: task.isCompleted,
-					buttonTitle: task.isCompleted ? "Done" : "Complete"
+					isWorking: isCompleting,
+					buttonTitle: task.isCompleted ? "Done" : (isCompleting ? "Saving..." : "Complete")
 				) {
 					store.send(.taskCompleteTapped(task.id))
 				}
@@ -117,6 +123,7 @@ struct HomeView: View {
 		title: String,
 		subtitle: String,
 		isComplete: Bool,
+		isWorking: Bool,
 		buttonTitle: String,
 		action: @escaping () -> Void
 	) -> some View {
@@ -134,7 +141,7 @@ struct HomeView: View {
 
 			Button(buttonTitle, action: action)
 				.buttonStyle(.borderedProminent)
-				.disabled(isComplete)
+				.disabled(isComplete || isWorking)
 		}
 		.padding()
 		.background(Color(uiColor: .secondarySystemBackground))
