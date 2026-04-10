@@ -187,7 +187,7 @@ struct HomeFeature {
 				state.errorMessage = nil
 
 				return .run { send in
-					let request = CompletionRequest.habit(id)
+					let request = CompletionRequest.task(id)
 
 					do {
 						let now = dateProvider.now()
@@ -324,15 +324,16 @@ struct HomeFeature {
 			} catch {
 				do {
 					try await revert()
-					throw AppError.repository(
-						message: "Failed to append completion event after retry. Completion was reverted."
-					)
 				} catch {
 					let revertError = AppError.from(error)
 					throw AppError.repository(
 						message: "Failed to append completion event after retry and failed to revert completion: \(revertError.errorDescription ?? "unknown error")"
 					)
 				}
+
+				throw AppError.repository(
+					message: "Failed to append completion event after retry. Completion was reverted."
+				)
 			}
 		}
 	}
